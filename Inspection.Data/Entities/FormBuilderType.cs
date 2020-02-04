@@ -8,6 +8,8 @@ namespace Inspection.Data.Entities
 	public class FormBuilderType : BaseEntity<int>
 	{
         public string Name { get; set; }
+        private ICollection<FormBuilder> _formBuilder;
+        public ICollection<FormBuilder> FormBuilder => _formBuilder ?? (_formBuilder = new List<FormBuilder>());
 
 
     }

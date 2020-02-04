@@ -42,6 +42,8 @@ namespace Inspection.Data
             this.CreateRelation<Role, RoleRight>(o => o.RoleRights, o => o.Role, o => o.RoleId);
             this.CreateRelation<Role, User>(o => o.Users, o => o.Role, o => o.RoleId);
             this.InitializeEntity<FormBuilderType>();
+            this.InitializeEntity<FormBuilder>();
+            this.CreateRelation<FormBuilderType, FormBuilder>(o => o.FormBuilder, o => o.FormBuilderType, o => o.TypeId);
 
             this.InitializeEntity<RoleRight>();
 

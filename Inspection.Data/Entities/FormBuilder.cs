@@ -8,6 +8,8 @@ namespace Inspection.Data.Entities
 	public class FormBuilder : BaseEntity<int>
 	{
         public string Name { get; set; }
+        public int TypeId { get; set; }
+        public FormBuilderType FormBuilderType { get; set; }
 
 
     }
