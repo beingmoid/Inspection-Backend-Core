@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Inspection.Data.Entities
 {
-	public class FormBuilderType : BaseEntity<int>
+	public class FormBuilder : BaseEntity<int>
 	{
         public string Name { get; set; }
 
