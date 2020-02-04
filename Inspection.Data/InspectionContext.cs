@@ -14,8 +14,9 @@ namespace Inspection.Data
 {
     public class InspectionContext : InspectionEfContext
     {
+        
         public InspectionContext()
-          : base(null, "Data Source=DESKTOP-BS7R6AC;Initial Catalog=InspectionSuite;Integrated Security=True")
+          : base(null, "Data Source=192.168.0.115;Initial Catalog=InspectionSuite;Integrated Security=True;User ID=sa;Password=moidshams")
         {
 
         }
