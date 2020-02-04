@@ -163,13 +163,17 @@ namespace Inspection.Apis
         private void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IFormBuilderTypeRepository, FormBuilderTypeRepository>();
         }
         private void ConfigureAppServices(IServiceCollection services)
         {
             services.AddScoped<IUserService, UserServices>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<UserIdGenerator>();
-         
+
+            services.AddScoped<IFormBuilderTypeServices, FormBuilderTypeServices>();
+
+
         }
 
       

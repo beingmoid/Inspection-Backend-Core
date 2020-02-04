@@ -41,6 +41,7 @@ namespace Inspection.Data
                 .HasConversion(o => Convert.ToInt32(o), o => (RoleType)o);
             this.CreateRelation<Role, RoleRight>(o => o.RoleRights, o => o.Role, o => o.RoleId);
             this.CreateRelation<Role, User>(o => o.Users, o => o.Role, o => o.RoleId);
+            this.InitializeEntity<FormBuilderType>();
 
             this.InitializeEntity<RoleRight>();
 

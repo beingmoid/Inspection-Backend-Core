@@ -11,6 +11,7 @@ namespace Inspection.Services.Mappings
         public AutoMapperMappings()
         {
             this.CreateMap<User>();
+            this.CreateMap<FormBuilderType>();
         }
     }
 }
