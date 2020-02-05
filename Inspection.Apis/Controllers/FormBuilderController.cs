@@ -13,9 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Inspection.Apis.Controllers
 {
 
-    public class FromBuilderController : BaseController<FormBuilder, int>
+    public class FormBuilderController : BaseController<FormBuilder, int>
     {
-        public FromBuilderController(RequestScope scopeContext, IFormBuilderServices service) : base(scopeContext, service)
+        public FormBuilderController(RequestScope scopeContext, IFormBuilderServices service) : base(scopeContext, service)
         {
         }
     }
