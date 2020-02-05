@@ -54,7 +54,7 @@ namespace Inspection.Apis
             };
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Gama Suite API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Inspection Suite API", Version = "v1" });
                 options.OperationFilter<TenantParameterOperationFilter>();
 
                 #region Swagger

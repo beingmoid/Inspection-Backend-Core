@@ -13,7 +13,7 @@ namespace InspectionCore.Apis
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
+	//[Authorize]
 	public abstract class BaseController : ControllerBase
 	{
 		public BaseController(RequestScope scopeContext, IBaseService service)
