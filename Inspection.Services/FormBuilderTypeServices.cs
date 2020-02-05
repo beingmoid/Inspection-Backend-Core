@@ -1,4 +1,5 @@
 ﻿using Inspection.Data.Entities;
+using Inspection.Data.Entities;
 using Inspection.Data.Reposiotories;
 using InspectionCore.Reposiotories;
 using InspectionCore.Services;

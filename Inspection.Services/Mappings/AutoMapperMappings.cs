@@ -12,6 +12,9 @@ namespace Inspection.Services.Mappings
         {
             this.CreateMap<User>();
             this.CreateMap<FormBuilderType>();
+            this.CreateMap<FormBuilder>();
+            this.CreateMap<FormBuilderQuestions>();
+            this.CreateMap<FormBuilderQuestionsResponse>();
         }
     }
 }

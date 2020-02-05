@@ -4,14 +4,16 @@ using Inspection.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inspection.Data.Migrations
 {
     [DbContext(typeof(InspectionContext))]
-    partial class InspectionContextModelSnapshot : ModelSnapshot
+    [Migration("20200205092652_0205201425")]
+    partial class _0205201425
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,8 +145,6 @@ namespace Inspection.Data.Migrations
 
                     b.Property<int?>("MaxScore");
 
-                    b.Property<int>("ResponseType");
-
                     b.Property<int?>("Scored");
 
                     b.Property<int?>("TenantId")
@@ -161,50 +161,6 @@ namespace Inspection.Data.Migrations
                     b.HasIndex("FormBuilderId");
 
                     b.ToTable("FormBuilderQuestions");
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestionsResponse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CompanyId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("CreateTime");
-
-                    b.Property<string>("CreateUserId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("EditTime");
-
-                    b.Property<string>("EditUserId");
-
-                    b.Property<int>("FormBuilderQuestionsId");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<int>("MaxScore");
-
-                    b.Property<string>("ResponseText");
-
-                    b.Property<int>("ResponseType");
-
-                    b.Property<int>("Scored");
-
-                    b.Property<int?>("TenantId")
-                        .HasMaxLength(100);
-
-                    b.Property<byte[]>("Timestamp")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FormBuilderQuestionsId");
-
-                    b.ToTable("FormBuilderQuestionsResponse");
                 });
 
             modelBuilder.Entity("Inspection.Data.Entities.FormBuilderType", b =>
@@ -460,14 +416,6 @@ namespace Inspection.Data.Migrations
                     b.HasOne("Inspection.Data.Entities.FormBuilder", "FormBuilder")
                         .WithMany("FormBuilderQuestions")
                         .HasForeignKey("FormBuilderId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestionsResponse", b =>
-                {
-                    b.HasOne("Inspection.Data.Entities.FormBuilderQuestions", "FormBuilderQuestions")
-                        .WithMany("FormBuilderQuestionsResponse")
-                        .HasForeignKey("FormBuilderQuestionsId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

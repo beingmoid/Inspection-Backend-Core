@@ -164,6 +164,9 @@ namespace Inspection.Apis
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IFormBuilderTypeRepository, FormBuilderTypeRepository>();
+            services.AddScoped<IFormBuilderRepository, FormBuilderRepository>();
+            services.AddScoped<IFormBuilderQuestionsRepository, FormBuilderQuestionsRepository>();
+            services.AddScoped<IFormBuilderQuestionsResponseRepository, FormBuilderQuestionsResponseRepository>();
         }
         private void ConfigureAppServices(IServiceCollection services)
         {
@@ -173,6 +176,9 @@ namespace Inspection.Apis
 
             services.AddScoped<IFormBuilderTypeServices, FormBuilderTypeServices>();
 
+            services.AddScoped<IFormBuilderServices, FormBuilderServices>();
+            services.AddScoped<IFormBuilderQuestionsServices, FormBuilderQuestionsServices>();
+            services.AddScoped<IFormBuilderQuestionsResponseServices, FormBuilderQuestionsResponseServices>();
 
         }
 

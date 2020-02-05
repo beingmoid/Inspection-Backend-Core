@@ -4,14 +4,16 @@ using Inspection.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inspection.Data.Migrations
 {
     [DbContext(typeof(InspectionContext))]
-    partial class InspectionContextModelSnapshot : ModelSnapshot
+    [Migration("20200205094633_0205201446")]
+    partial class _0205201446
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

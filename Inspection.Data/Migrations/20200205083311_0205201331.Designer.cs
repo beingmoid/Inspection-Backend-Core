@@ -4,14 +4,16 @@ using Inspection.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Inspection.Data.Migrations
 {
     [DbContext(typeof(InspectionContext))]
-    partial class InspectionContextModelSnapshot : ModelSnapshot
+    [Migration("20200205083311_0205201331")]
+    partial class _0205201331
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,104 +109,6 @@ namespace Inspection.Data.Migrations
                     b.HasIndex("TypeId");
 
                     b.ToTable("FormBuilder");
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestions", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CompanyId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("CreateTime");
-
-                    b.Property<string>("CreateUserId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("EditTime");
-
-                    b.Property<string>("EditUserId");
-
-                    b.Property<int>("FormBuilderId");
-
-                    b.Property<bool>("ISMultiSelect");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<bool>("IsMandatory");
-
-                    b.Property<bool>("IsNotified");
-
-                    b.Property<bool?>("IsScored");
-
-                    b.Property<string>("Key");
-
-                    b.Property<int?>("MaxScore");
-
-                    b.Property<int>("ResponseType");
-
-                    b.Property<int?>("Scored");
-
-                    b.Property<int?>("TenantId")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Text");
-
-                    b.Property<byte[]>("Timestamp")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FormBuilderId");
-
-                    b.ToTable("FormBuilderQuestions");
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestionsResponse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CompanyId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("CreateTime");
-
-                    b.Property<string>("CreateUserId")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("EditTime");
-
-                    b.Property<string>("EditUserId");
-
-                    b.Property<int>("FormBuilderQuestionsId");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<int>("MaxScore");
-
-                    b.Property<string>("ResponseText");
-
-                    b.Property<int>("ResponseType");
-
-                    b.Property<int>("Scored");
-
-                    b.Property<int?>("TenantId")
-                        .HasMaxLength(100);
-
-                    b.Property<byte[]>("Timestamp")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FormBuilderQuestionsId");
-
-                    b.ToTable("FormBuilderQuestionsResponse");
                 });
 
             modelBuilder.Entity("Inspection.Data.Entities.FormBuilderType", b =>
@@ -452,22 +356,6 @@ namespace Inspection.Data.Migrations
                     b.HasOne("Inspection.Data.Entities.FormBuilderType", "FormBuilderType")
                         .WithMany("FormBuilder")
                         .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestions", b =>
-                {
-                    b.HasOne("Inspection.Data.Entities.FormBuilder", "FormBuilder")
-                        .WithMany("FormBuilderQuestions")
-                        .HasForeignKey("FormBuilderId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Inspection.Data.Entities.FormBuilderQuestionsResponse", b =>
-                {
-                    b.HasOne("Inspection.Data.Entities.FormBuilderQuestions", "FormBuilderQuestions")
-                        .WithMany("FormBuilderQuestionsResponse")
-                        .HasForeignKey("FormBuilderQuestionsId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

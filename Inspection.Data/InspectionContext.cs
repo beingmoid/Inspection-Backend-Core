@@ -16,7 +16,7 @@ namespace Inspection.Data
     {
         
         public InspectionContext()
-          : base(null, "Data Source=192.168.0.115;Initial Catalog=InspectionSuite;Integrated Security=True;User ID=sa;Password=moidshams")
+          : base(null, "Data Source=192.168.0.115;Initial Catalog=InspectionSuite;Integrated Security=False;Trusted_Connection=False;User ID=sa;Password=moidshams")
         {
 
         }
@@ -45,6 +45,13 @@ namespace Inspection.Data
             this.InitializeEntity<FormBuilderType>();
             this.InitializeEntity<FormBuilder>();
             this.CreateRelation<FormBuilderType, FormBuilder>(o => o.FormBuilder, o => o.FormBuilderType, o => o.TypeId);
+            this.InitializeEntity<FormBuilderQuestions>();
+            this.CreateRelation<FormBuilder, FormBuilderQuestions>(o => o.FormBuilderQuestions, o => o.FormBuilder, o => o.FormBuilderId);
+
+            this.InitializeEntity<FormBuilderQuestionsResponse>();
+            this.CreateRelation<FormBuilderQuestions, FormBuilderQuestionsResponse>(o => o.FormBuilderQuestionsResponse, o => o.FormBuilderQuestions, o => o.FormBuilderQuestionsId);
+
+
 
             this.InitializeEntity<RoleRight>();
 

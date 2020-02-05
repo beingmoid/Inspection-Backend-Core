@@ -11,6 +11,10 @@ namespace Inspection.Data.Entities
         public int TypeId { get; set; }
         public FormBuilderType FormBuilderType { get; set; }
 
+        private ICollection<FormBuilderQuestions> _formBuilderQuestions;
+        public ICollection<FormBuilderQuestions> FormBuilderQuestions => _formBuilderQuestions ?? (_formBuilderQuestions = new List<FormBuilderQuestions>());
+
+
 
     }
 }
