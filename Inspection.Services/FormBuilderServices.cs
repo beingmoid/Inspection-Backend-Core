@@ -13,6 +13,7 @@ namespace Inspection.Services
         public FormBuilderServices(RequestScope requestScope, IFormBuilderRepository repository) : base(requestScope,repository)
         {
         }
+        
     }
 
     public interface IFormBuilderServices : IBaseService<FormBuilder,int>

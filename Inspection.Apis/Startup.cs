@@ -47,7 +47,18 @@ namespace Inspection.Apis
             services.AddDbContext<InspectionContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpContextAccessor();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
             EntityFrameworkManager.ContextFactory = context =>
             {
                 return new InspectionContext((context as InspectionContext).RequestInfo);
@@ -202,6 +213,7 @@ namespace Inspection.Apis
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
+            app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseSwagger();

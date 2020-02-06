@@ -27,7 +27,7 @@ namespace Inspection.Services
 		
 		public async Task<LoginInfo> Authenticate(string login, string password)
 		{
-			var user = (!(login!=null || password!=null))?await this._userRepository.GetOne((x => x.Id == login && x.Password == password)) : throw new ServiceException("Login and Password cannot left empty.");
+			var user = ((login!=null && password!=null))?await this._userRepository.GetOne((x => x.Id == login && x.Password == password)) : throw new ServiceException("Login and Password cannot left empty.");
 
 			if (user == null)
 			{

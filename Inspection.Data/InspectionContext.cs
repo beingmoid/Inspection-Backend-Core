@@ -16,7 +16,7 @@ namespace Inspection.Data
     {
         
         public InspectionContext()
-          : base(null, "Data Source=192.168.0.115;Initial Catalog=InspectionSuite;Integrated Security=False;Trusted_Connection=False;User ID=sa;Password=moidshams")
+          : base(null, "Server=192.168.0.115;Initial Catalog=InspectionSuite;Integrated Security=False;Trusted_Connection=False;User ID=sa;Password=moidshams")
         {
 
         }
